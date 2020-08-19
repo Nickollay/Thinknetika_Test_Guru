@@ -1,8 +1,16 @@
-<p>
-  <%= question.body %>
-</p>
+<!--<li>-->
+  <p>
+    <%= question.body %>
+  </p>
+
+
 <%= link_to 'Show',   question_path(question) %>
 <%= link_to 'Edit',   edit_question_path(question) %>
 <%= link_to 'Delete', question_path(question),
-                      method: :delete,
-                      data: { confirm: 'Are u sure?' } %>
+            method: :delete,
+            data: { confirm: 'Are u sure?' } %>
+
+
+
+
+<!--<li/>-->
