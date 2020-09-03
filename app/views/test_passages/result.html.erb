@@ -1,0 +1,7 @@
+<h1>The <%= @test_passage.test.title %> was completed!</h1>
+<p>You corectly answered <span class=<%= @test_passage.succeeded? ? 'green' : 'red' %>><%= @test_passage.succes_percent %>%</span>
+<span><%= @test_passage.succeeded? ? 'Congratulation, you succesfuly pass the test!' : 'You failed to pass test!' %>
+</p> 
+<p>
+<%= link_to 'Back', tests_path  %>
+</p>
