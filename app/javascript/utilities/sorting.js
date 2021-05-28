@@ -55,5 +55,3 @@ document.addEventListener('turbolinks:load', function() {
 
     if (control) { control.addEventListener('click', sortRowsByTitle) }
 } )
-
-
