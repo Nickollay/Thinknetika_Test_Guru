@@ -1,12 +1,13 @@
 function sortRowsByTitle() {
     let table = document.querySelector('table'),
         rows = table.querySelectorAll('tr'),
-        sortedRows = [],
-        sortedTable = document.createElement('table')
+        sortedRows = []
 
     for(let i = 1; i < rows.length; i++) {
         sortedRows.push(rows[i])
     }
+
+    let sortedTable = table.cloneNode(true)
 
     if(this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
         sortedRows.sort(compareRowsAsc)
@@ -18,11 +19,14 @@ function sortRowsByTitle() {
         this.querySelector('.octicon-arrow-up').classList.add('hide')
     }
 
-    sortedTable.classList.add('table')
-    sortedTable.appendChild(rows[0])
+    sortedTable.querySelector('tr').parentNode.replaceChild(rows[0], sortedTable.querySelector('tr'))
+
+    let parentElementOfTr = sortedTable.querySelectorAll('tr')[1].parentNode
+
+    parentElementOfTr.querySelectorAll('tr').forEach(n => n.remove())
 
     for(let i =0; i < sortedRows.length; i++) {
-        sortedTable.appendChild(sortedRows[i])
+       parentElementOfTr.appendChild(sortedRows[i])
     }
 
     table.parentNode.replaceChild(sortedTable, table)
