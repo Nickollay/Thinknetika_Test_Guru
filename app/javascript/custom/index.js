@@ -43,23 +43,17 @@ class sortTableRowsByTitle {
 
 
     sortRowsByTitle() {
-        // debugger
-        // let sortedRows = Array.from(this.table.rows)
-        //     .slice(1)
-        //     .sort((rowA, rowB) => rowA.cells[this.columnIndex].innerHTML > rowB.cells[this.columnIndex].innerHTML ? 1 : -1);
-
+        const rowsToSort = Array.from(this.table.rows).slice(1)
         let sortedRows
 
         if(this.control.querySelector('.octicon-arrow-up').classList.contains('hide')) {
-                sortedRows = Array.from(this.table.rows)
-                .slice(1)
+                sortedRows = rowsToSort
                 .sort((rowA, rowB) => rowA.cells[this.columnIndex].innerHTML > rowB.cells[this.columnIndex].innerHTML ? 1 : -1);
 
             this.control.querySelector('.octicon-arrow-up').classList.remove('hide')
             this.control.querySelector('.octicon-arrow-down').classList.add('hide')
         } else {
-            sortedRows = Array.from(this.table.rows)
-                .slice(1)
+            sortedRows = rowsToSort
                 .sort((rowA, rowB) => rowA.cells[this.columnIndex].innerHTML > rowB.cells[this.columnIndex].innerHTML ? -1 : 1);
 
             this.control.querySelector('.octicon-arrow-down').classList.remove('hide')
@@ -73,7 +67,7 @@ class sortTableRowsByTitle {
 document.addEventListener('turbolinks:load', () => {
     const signUpForm = document.getElementById('new_user')
 
-    if(signUpForm) { new passwordConfirmation(signUpForm) }
+    if(signUpForm) new passwordConfirmation(signUpForm)
 
     const tablesToSort = document.getElementsByClassName('sortable-table')
 
