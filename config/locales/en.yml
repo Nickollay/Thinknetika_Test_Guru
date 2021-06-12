@@ -63,6 +63,8 @@ en:
     nav:
       title: "admin Panel"
       hello: "Welcome %{name} Guru"
+    form_inline:
+      submit: 'ОК'
 
   test_passages:
     show:

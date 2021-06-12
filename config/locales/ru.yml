@@ -59,6 +59,8 @@ ru:
         success: 'Тест успешно удален!'
       update:
         success: 'Тест успешно обновлен!'
+      form_inline:
+        submit: 'OK'
 
   test_passages:
     show:
