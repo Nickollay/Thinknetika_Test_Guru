@@ -112,14 +112,32 @@ class  formInlineHandler {
     }
 }
 
+class setProgressBar {
+    constructor(progressBar) {
+        this.userBar = progressBar.querySelector('div#user-bar')
+        this.questionNumber = document.querySelector('[data-question-number]').dataset.questionNumber
+        this.NumberOfQuestions = document.querySelector('[data-number-of-questions]').dataset.numberOfQuestions
+
+        this.setProgress()
+    }
+
+    setProgress() {
+        let progress = this.questionNumber / this.NumberOfQuestions * 100
+        this.userBar.setAttribute('style', 'width: ' + progress + '%')
+        // debugger
+    }
+
+}
 
 document.addEventListener('turbolinks:load', () => {
     I18n.locale = $('body').data('locale')
 
+    // editTestTitle
     const adminTables = document.getElementsByClassName('admin table')
 
     if(adminTables) Array.prototype.forEach.call(adminTables, table => { new editTestTitle(table) })
 
+    // formInlineHandler after errors occurred on resource edit
     const error = document.getElementsByClassName('resource-errors')[0]
 
     if(error) {
@@ -127,13 +145,18 @@ document.addEventListener('turbolinks:load', () => {
 
         new formInlineHandler(resourceId)
     }
- })
 
-document.addEventListener('turbolinks:load', () => {
+    // progress bar
+    const progressBar = document.getElementById('progress-bar')
+
+    if(progressBar) new setProgressBar(progressBar)
+
+    // passwordConfirmation
     const signUpForm = document.getElementById('new_user')
 
     if(signUpForm) new passwordConfirmation(signUpForm)
 
+    // sortTableRowsByTitle
     const tablesToSort = document.getElementsByClassName('sortable-table')
 
     if(tablesToSort) Array.prototype.forEach.call(tablesToSort, table => { new sortTableRowsByTitle(table) })

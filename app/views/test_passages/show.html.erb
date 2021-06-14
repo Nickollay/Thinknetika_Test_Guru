@@ -1,8 +1,18 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<p>
-  <%= t('.question') %> <%= @test_passage.current_question_number %> / <%= @test_passage.test.number_of_questions %>
-</p>
+<% current_question_number = @test_passage.current_question_number %>
+<% number_of_questions = @test_passage.test.number_of_questions %>
+
+<%= content_tag :p, data: { question_number: current_question_number, number_of_questions: number_of_questions } do %>
+  <%= t('.question') %> <%=   current_question_number %> / <%= number_of_questions %>
+<% end %>
+
+
+<div id="progress-bar">
+  <div id="user-bar">
+    0%
+  </div>
+</div>
 
 <b>
   <%= @test_passage.current_question.body %>

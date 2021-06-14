@@ -5,3 +5,13 @@
 svg.hide, form.hide, span.test-title.hide {
   display: none;
 }
+
+div#progress-bar {
+  width: 100%;
+  background-color: #999999;
+}
+
+div#user-bar {
+  width: 0%;
+  background-color: green;
+}
