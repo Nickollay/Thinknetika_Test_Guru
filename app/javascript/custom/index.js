@@ -64,6 +64,71 @@ class sortTableRowsByTitle {
     }
 }
 
+class editTestTitle {
+    constructor(table) {
+        this.table = table
+        this.formInlineLinks = this.table.getElementsByClassName('form-inline-link')
+
+        this.setup()
+    }
+
+    setup() {
+        if(this.formInlineLinks) { Array.prototype.forEach.call(this.formInlineLinks, link => { link.addEventListener('click', event => { this.formInlineLinkHandler(event, link) }) }) }
+    }
+
+    formInlineLinkHandler(event, link) {
+        event.preventDefault()
+
+        const testId = link.dataset.testId
+
+        new formInlineHandler(testId)
+    }
+}
+
+class  formInlineHandler {
+    constructor(testId) {
+        this.testId = testId
+
+        this.formInlineHandler(testId)
+    }
+
+    formInlineHandler(testId) {
+        const link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
+
+        let testTitle = document.querySelector('.test-title[data-test-id="' + testId + '"]'),
+            formInline = document.querySelector('.form-inline[data-test-id="' + testId + '"]')
+
+        if (formInline) {
+            if (formInline.classList.contains('hide')) {
+                testTitle.classList.add('hide')
+                formInline.classList.remove('hide')
+                link.textContent = I18n.t('cancel')
+            } else {
+                formInline.classList.add('hide')
+                testTitle.classList.remove('hide')
+                link.textContent = I18n.t('edit')
+            }
+        }
+    }
+}
+
+
+document.addEventListener('turbolinks:load', () => {
+    I18n.locale = $('body').data('locale')
+
+    const adminTables = document.getElementsByClassName('admin table')
+
+    if(adminTables) Array.prototype.forEach.call(adminTables, table => { new editTestTitle(table) })
+
+    const error = document.getElementsByClassName('resource-errors')[0]
+
+    if(error) {
+        const resourceId = error.dataset.resourceId
+
+        new formInlineHandler(resourceId)
+    }
+ })
+
 document.addEventListener('turbolinks:load', () => {
     const signUpForm = document.getElementById('new_user')
 
@@ -71,5 +136,5 @@ document.addEventListener('turbolinks:load', () => {
 
     const tablesToSort = document.getElementsByClassName('sortable-table')
 
-    if(tablesToSort.length) Array.prototype.forEach.call(tablesToSort, table => { new sortTableRowsByTitle(table) })
+    if(tablesToSort) Array.prototype.forEach.call(tablesToSort, table => { new sortTableRowsByTitle(table) })
 })

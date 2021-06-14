@@ -31,6 +31,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise', '~>4.0'
 gem 'octokit', '~> 4.0'
 gem 'octicons_helper'
+gem 'i18n-js'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -6,6 +6,7 @@ ru:
   edit: "Редактировать"
   delete: "Удалить"
   sure: "Вы уверены?"
+  cancel: "Отмена"
 
   helpers:
     submit:
