@@ -18,17 +18,19 @@
     <%= f.email_field :email, autofocus: true, autocomplete: t(".email") %>
   </div>
 
-  <div class="field">
+  <div class="field password">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> <%= t('.characters_minimum') %>)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: t(".new-password") %>
+    <%= f.password_field :password, autocomplete: t(".new-password"), class: 'user_password' %>
   </div>
 
-  <div class="field">
+  <div class="field password_confirmation">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: t(".new-password") %>
+    <%= f.password_field :password_confirmation, autocomplete: t(".new-password"), class: 'user_password_confirm' %>
+    <%= octicon 'check', height: 24, class: 'text-success hide' %>
+    <%= octicon 'x', height: 24, class: 'text-danger hide' %>
   </div>
 
   <div class="actions">
