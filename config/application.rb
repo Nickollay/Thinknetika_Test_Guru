@@ -28,6 +28,8 @@ module TestGuru
     unless ENV['RAILS_ENV'] == 'production'
       Dotenv::Railtie.load
     end
+
+    config.assets.initialize_on_precompile = true # enabled due to i18n-js
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
