@@ -7,6 +7,7 @@ en:
   edit: "Edit"
   delete: "Delete"
   sure: "Are you sure?"
+  cancel: "Cancel"
 
   helpers:
     submit:
@@ -63,6 +64,9 @@ en:
     nav:
       title: "admin Panel"
       hello: "Welcome %{name} Guru"
+    form_inline:
+      submit: 'ОК'
+      cancel: 'Cancel'
 
   test_passages:
     show:

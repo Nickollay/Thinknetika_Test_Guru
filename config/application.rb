@@ -17,6 +17,8 @@ module TestGuru
     config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
 
+    config.middleware.use I18n::JS::Middleware
+
     config.autoload_paths << "#{Rails.root}/lib/clients"
 
     config.assets.version = '1.0'
