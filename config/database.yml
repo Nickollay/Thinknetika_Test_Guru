@@ -3,12 +3,10 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV["RAILS_MAX_THREADS"] { 5 } %>
-#  host: localhost
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  #  pool: 5
   username: test-guru
-  password: <%= ENV['TESTGURU_DATABASE_PASSWORD'] %>
+  password: <%= ENV.fetch('TESTGURU_DATABASE_PASSWORD') %>
 
 development:
   <<: *default
@@ -20,14 +18,10 @@ test:
   <<: *default
   database: TestGuru_test
 
-
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
-  database: TestGuru_production
+  database: test_guru_production
   host: localhost
   pool: 5
   username: test-guru
-  password: <%= ENV['TESTGURU_DATABASE_PASSWORD'] %>
+  password: <%= ENV.fetch('TESTGURU_DATABASE_PASSWORD') %>
