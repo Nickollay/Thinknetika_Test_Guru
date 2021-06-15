@@ -19,6 +19,8 @@ users = User.create!([ { type: :Admin,
                        }
                      ])
 
+users.each(&:confirm)
+
 categories = Category.create!([ { title: :Front },
                                 { title: :Back },
                                 { title: :Mobile }
