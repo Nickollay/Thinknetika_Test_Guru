@@ -21,7 +21,7 @@ module TestGuru
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
 
-    config.assets.version = '1.0'
+    config.assets.version = '1.01'
 
     Bundler.require(*Rails.groups)
 

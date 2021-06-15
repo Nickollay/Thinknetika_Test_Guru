@@ -16,7 +16,6 @@ require("../custom")
 import I18n from 'i18n-js'
 window.I18n = I18n
 // Some people even need to add the extension to make it work, see https://github.com/fnando/i18n-js/issues/283
-require ('i18n.js')
 require('../../../public/javascripts/translations.js')
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
