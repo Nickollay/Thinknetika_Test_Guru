@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 users = User.create!([ { type: :Admin,
                          email: :'admin@test-guru.com',
-                         encrypted_password: ENV['ADMIN_PASSWORD'],
+                         password: ENV.fetch('ADMIN_PASSWORD'),
                          first_name: :'Boss',
                          last_name: :'Ugu'
                        },
                        { type: :User,
                          email: :'user@test-guru.com',
-                         encrypted_password: ENV['USER_PASSWORD'],
+                         password: ENV.fetch('USER_PASSWORD'),
                          first_name: :'Trier',
                          last_name: :'Once'
                        }
