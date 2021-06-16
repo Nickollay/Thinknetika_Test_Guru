@@ -61,9 +61,6 @@ en:
         success: 'Test was successfully deleted!'
       update:
         success: 'Test was successfully updated!'
-    nav:
-      title: "admin Panel"
-      hello: "Welcome %{name} Guru"
     form_inline:
       submit: 'ОК'
       cancel: 'Cancel'
@@ -85,6 +82,10 @@ en:
       header:
         one: "%{count} error occurred:"
         other: "%{count} errors occurred:"
+    nav:
+      title: "admin Panel"
+      hello: "Welcome %{name} Guru"
+      feedback: "Feedback"
 
   tests_mailer:
     subject: "You've just completed the TestGuru test"
@@ -98,10 +99,15 @@ en:
       success: 'Gist was successfully created!'
       failure: 'An error occurred while saving gist!'
 
-  feedback:
+  feedbacks:
     create:
       success: "Feedback was successfully send!"
+    new:
+      title: "Please leave your feedback:"
+    form:
+      label: "Please leave your feedback here"
+      submit: "Send"
 
-
-  feedback_mailer:
+  feedbacks_mailer:
     subject: "Feedback about TestGuru app"
+    stranger: "User"
