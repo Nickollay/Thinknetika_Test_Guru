@@ -4,7 +4,6 @@ class FeedbacksController < ApplicationController
   def new; end
 
   def create
-    # binding.pry
     FeedbacksMailer.feedback(params[:feedback], current_user).deliver_now
 
     flash[:success] = t('.success')
