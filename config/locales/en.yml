@@ -97,3 +97,11 @@ en:
     create:
       success: 'Gist was successfully created!'
       failure: 'An error occurred while saving gist!'
+
+  feedback:
+    create:
+      success: "Feedback was successfully send!"
+
+
+  feedback_mailer:
+    subject: "Feedback about TestGuru app"

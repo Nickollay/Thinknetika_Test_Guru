@@ -97,3 +97,10 @@ ru:
     create:
       success: 'Gist успешно сохранен!'
       failure: 'Во время сохранения gist произощла ошибка'
+
+  feedback:
+    create:
+      success: "Отзыв успрешно отправлен!"
+
+  feedback_mailer:
+    subject: "Отзыв о TestGuru"
