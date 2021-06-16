@@ -5,9 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create!([ { name: :Admin, email: :'admin@test-guru.com', encrypted_password: :'1234' },
-                       { name: :User, email: :'user@test-guru.com', encrypted_password: :'1234' }
+users = User.create!([ { type: :Admin,
+                         email: :'admin@test-guru.com',
+                         password: ENV.fetch('ADMIN_PASSWORD'),
+                         first_name: :'Boss',
+                         last_name: :'Ugu'
+                       },
+                       { type: :User,
+                         email: :'user@test-guru.com',
+                         password: ENV.fetch('USER_PASSWORD'),
+                         first_name: :'Trier',
+                         last_name: :'Once'
+                       }
                      ])
+
+users.each(&:confirm)
 
 categories = Category.create!([ { title: :Front },
                                 { title: :Back },
@@ -115,7 +127,7 @@ answer = Answer.create!([ { body: "Cum impositio studere, omnes nutrixes talem b
                             correct: :false,  question: questions[0] }
                         ])
 
-tests_users = TestsUser.create!([ { user: users[1], test: tests[1] },
+tests_users = TestPassage.create!([ { user: users[1], test: tests[1] },
                                   { user: users[0], test: tests[2] },
                                   { user: users[1], test: tests[3] },
                                   { user: users[0], test: tests[4] },

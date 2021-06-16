@@ -1,6 +1,11 @@
 <% if current_user.is_a?(Admin) %>
   <nav  class = 'navbar navbar-dark bg-dark'>
     <%= link_to 'Test Guru!', root_path, class: "navbar-brand" %>
+
+    <span class="navbar-text ">
+      <%= link_to t('.feedback'), new_feedback_path %>
+    </span>
+
     <%= link_to t('.title'), admin_tests_path %>
     <%= link_to 'Gists', admin_gists_path %>
 
@@ -13,6 +18,9 @@
 <% else %>
   <nav  class = 'navbar navbar-light bg-light'>
     <%= link_to 'Test Guru!', root_path, class: "navbar-brand" %>
+    <span class="navbar-text ">
+      <%= link_to t('.feedback'), new_feedback_path %>
+    </span>
 
     <span class="navbar-text ">
       <% if user_signed_in?  %>

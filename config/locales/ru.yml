@@ -39,6 +39,7 @@ ru:
     nav:
       hello: "Привет %{name} Гуру"
 
+
   admin:
     tests:
       index:
@@ -85,6 +86,7 @@ ru:
     nav:
       title: "панель администратора"
       hello: "Привет %{name} Гуру"
+      feedback: "Отзыв"
 
   tests_mailer:
     subject: "Вы только что завершили TestGuru тест."
@@ -97,3 +99,16 @@ ru:
     create:
       success: 'Gist успешно сохранен!'
       failure: 'Во время сохранения gist произощла ошибка'
+
+  feedbacks:
+    create:
+      success: "Отзыв успрешно отправлен!"
+    new:
+      title: "Оставте свой отзыв:"
+    form:
+      label: "Оставте свой отзыв здесь"
+      submit: "Отправить"
+
+  feedbacks_mailer:
+    subject: "Отзыв о TestGuru"
+    stranger: "Аноним"
