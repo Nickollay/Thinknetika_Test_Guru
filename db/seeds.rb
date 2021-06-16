@@ -127,7 +127,7 @@ answer = Answer.create!([ { body: "Cum impositio studere, omnes nutrixes talem b
                             correct: :false,  question: questions[0] }
                         ])
 
-tests_users = TestsUser.create!([ { user: users[1], test: tests[1] },
+tests_users = TestPassage.create!([ { user: users[1], test: tests[1] },
                                   { user: users[0], test: tests[2] },
                                   { user: users[1], test: tests[3] },
                                   { user: users[0], test: tests[4] },
