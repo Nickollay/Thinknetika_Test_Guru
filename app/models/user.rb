@@ -9,11 +9,12 @@ class User < ApplicationRecord
          :confirmable
 
   REGEX_EMAIL_PATTERN = /\A[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+\z/
+
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :created_tests, foreign_key: :creator_id, class_name: 'Test', dependent: :nullify
   has_many :gists
-
+  has_many :badges
   validates :email, presence: true, uniqueness: true, format: { with: REGEX_EMAIL_PATTERN }
 
   def tests_participated_by_user(level)
