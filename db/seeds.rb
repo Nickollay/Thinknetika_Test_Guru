@@ -5,20 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create!([ { name: :Admin, email: :'admin@test-guru.com', encrypted_password: :'1234' },
-                       { name: :User, email: :'user@test-guru.com', encrypted_password: :'1234' }
-                     ])
+
+user = User.create!(email: :'user@test-guru.com', password: :'1234567')
+admin = Admin.create!(email: :'admin@test-guru.com', first_name: 'Test', last_name: 'Tester', password: :'1234567')
 
 categories = Category.create!([ { title: :Front },
                                 { title: :Back },
                                 { title: :Mobile }
                               ])
 
-tests = Test.create!([ { title: :React, level: 2, category: categories[0], creator: users[0] },
-                       { title: :JS,    level: 1, category: categories[0], creator: users[0] },
-                       { title: :Ruby,  level: 2, category: categories[1], creator: users[0] },
-                       { title: :RoR,   level: 1, category: categories[1], creator: users[0] },
-                       { title: :IOS,   level: 2, category: categories[2], creator: users[0] }
+tests = Test.create!([ { title: :React, level: 2, category: categories[0], creator: user },
+                       { title: :JS,    level: 1, category: categories[0], creator: user },
+                       { title: :Ruby,  level: 2, category: categories[1], creator: user },
+                       { title: :RoR,   level: 1, category: categories[1], creator: user },
+                       { title: :IOS,   level: 2, category: categories[2], creator: user }
                      ])
 
 questions = Question.create!([ { body: "Jolly, yo-ho-ho.",
@@ -107,7 +107,7 @@ answer = Answer.create!([ { body: "Cum impositio studere, omnes nutrixes talem b
                             correct: :false,  question: questions[11] },
                           { body: "Scurvy, mighty golds quirky desire a real, rough pin.",
                             correct: :true, question: questions[12] },
-                          { body: "",
+                          { body: "WERt",
                             correct: :false,  question: questions[13] },
                           { body: "With chilis drink salsa verde.",
                             correct: :true, question: questions[14] },
@@ -115,9 +115,9 @@ answer = Answer.create!([ { body: "Cum impositio studere, omnes nutrixes talem b
                             correct: :false,  question: questions[0] }
                         ])
 
-tests_users = TestsUser.create!([ { user: users[1], test: tests[1] },
-                                  { user: users[0], test: tests[2] },
-                                  { user: users[1], test: tests[3] },
-                                  { user: users[0], test: tests[4] },
-                                  { user: users[1], test: tests[0] }
+tests_users = TestPassage.create!([ { user: admin, test: tests[1] },
+                                  { user: user, test: tests[2] },
+                                  { user: admin, test: tests[3] },
+                                  { user: user, test: tests[4] },
+                                  { user: admin, test: tests[0] }
                                 ])
