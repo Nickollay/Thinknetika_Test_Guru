@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 users = User.create!([ { type: :Admin,
                          email: :'admin@test-guru.com',
                          password: ENV.fetch('ADMIN_PASSWORD'),
@@ -19,6 +20,7 @@ users = User.create!([ { type: :Admin,
                        }
                      ])
 
+
 users.each(&:confirm)
 
 categories = Category.create!([ { title: :Front },
@@ -26,11 +28,11 @@ categories = Category.create!([ { title: :Front },
                                 { title: :Mobile }
                               ])
 
-tests = Test.create!([ { title: :React, level: 2, category: categories[0], creator: users[0] },
-                       { title: :JS,    level: 1, category: categories[0], creator: users[0] },
-                       { title: :Ruby,  level: 2, category: categories[1], creator: users[0] },
-                       { title: :RoR,   level: 1, category: categories[1], creator: users[0] },
-                       { title: :IOS,   level: 2, category: categories[2], creator: users[0] }
+tests = Test.create!([ { title: :React, level: 2, category: categories[0], creator: user },
+                       { title: :JS,    level: 1, category: categories[0], creator: user },
+                       { title: :Ruby,  level: 2, category: categories[1], creator: user },
+                       { title: :RoR,   level: 1, category: categories[1], creator: user },
+                       { title: :IOS,   level: 2, category: categories[2], creator: user }
                      ])
 
 questions = Question.create!([ { body: "Jolly, yo-ho-ho.",
@@ -119,7 +121,7 @@ answer = Answer.create!([ { body: "Cum impositio studere, omnes nutrixes talem b
                             correct: :false,  question: questions[11] },
                           { body: "Scurvy, mighty golds quirky desire a real, rough pin.",
                             correct: :true, question: questions[12] },
-                          { body: "",
+                          { body: "WERt",
                             correct: :false,  question: questions[13] },
                           { body: "With chilis drink salsa verde.",
                             correct: :true, question: questions[14] },
