@@ -6,8 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create!(email: :'user@test-guru.com', password: :'1234567')
-admin = Admin.create!(email: :'admin@test-guru.com', first_name: 'Test', last_name: 'Tester', password: :'1234567')
+users = User.create!([ { type: :Admin,
+                         email: :'admin@test-guru.com',
+                         password: ENV.fetch('ADMIN_PASSWORD'),
+                         first_name: :'Boss',
+                         last_name: :'Ugu'
+                       },
+                       { type: :User,
+                         email: :'user@test-guru.com',
+                         password: ENV.fetch('USER_PASSWORD'),
+                         first_name: :'Trier',
+                         last_name: :'Once'
+                       }
+                     ])
+
+
+users.each(&:confirm)
 
 categories = Category.create!([ { title: :Front },
                                 { title: :Back },
@@ -115,9 +129,9 @@ answer = Answer.create!([ { body: "Cum impositio studere, omnes nutrixes talem b
                             correct: :false,  question: questions[0] }
                         ])
 
-tests_users = TestPassage.create!([ { user: admin, test: tests[1] },
-                                  { user: user, test: tests[2] },
-                                  { user: admin, test: tests[3] },
-                                  { user: user, test: tests[4] },
-                                  { user: admin, test: tests[0] }
+tests_users = TestPassage.create!([ { user: users[1], test: tests[1] },
+                                  { user: users[0], test: tests[2] },
+                                  { user: users[1], test: tests[3] },
+                                  { user: users[0], test: tests[4] },
+                                  { user: users[1], test: tests[0] }
                                 ])

@@ -19,7 +19,11 @@ Rails 6.0.3.2
 * Аутентификация
 * Базовые разграничения прав доступа
 * Выполнение тестов
-* Публикация результатов в соцсети
+* Сохранение вопроса в gist Гитхаба|
+
+### URL:
+https://become-test-guru.herokuapp.com/
+
 
 #### Set up
 yarn should be installed, to install it locally:
