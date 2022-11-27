@@ -1,7 +1,7 @@
 class Badge < ApplicationRecord
   enum rule_type: {
     #TODO: add types:
-    foo: 0,
+    all_from_category: 0,
     bar: 1
   }
 
