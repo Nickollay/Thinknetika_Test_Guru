@@ -35,4 +35,40 @@ document.addEventListener('turbolinks:load', () => {
     const tablesToSort = document.getElementsByClassName('sortable-table')
 
     if(tablesToSort) Array.prototype.forEach.call(tablesToSort, table => { new sortTableRowsByTitle(table) })
+
+    // populate badge_rule_values depending on badge_rule_type
+    const badgeRuleType = document.getElementById('badge_rule_type')
+
+    if(badgeRuleType) callUpdateBadgeRuleValue(badgeRuleType)
+    if(badgeRuleType) badgeRuleType.addEventListener('change', () => { callUpdateBadgeRuleValue(badgeRuleType) })
+
+    function callUpdateBadgeRuleValue(badgeRuleType) {
+        const ruleType = badgeRuleType.value
+        const $badge_rule_value = $("#badge_rule_value")
+        const all_with_level = '2'
+        let rule_values = []
+
+        $badge_rule_value.children().remove()
+
+        if(ruleType == all_with_level) {
+            const levels = Array.from({length:11},(v,k)=>k)
+
+            $.each(levels, function(level) {
+                rule_values += '<option value="' + level + '">' + level + '</option>'
+            })
+
+            $badge_rule_value.append(rule_values)
+        }else{
+            $.ajax({
+                url: '/admin/badges/find_rule_values',
+                data: { rule: ruleType }
+            }).done(function(data) {
+                $.each(data, function(key, value) {
+                    rule_values += '<option value="' + key+ '">' + value + '</option>'
+                })
+
+                $badge_rule_value.append(rule_values)
+            });
+        }
+    }
 })

@@ -31,7 +31,11 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
-    resources :badges
+    resources :badges do
+      collection do
+        get :find_rule_values
+      end
+    end
   end
 
   resources :feedbacks, only: [:new, :create]

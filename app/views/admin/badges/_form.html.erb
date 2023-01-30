@@ -18,12 +18,12 @@
 
   <p>
     <%= form.label :badge_rule_type %>
-    <%= form.text_field :rule_type, id: :badge_rule_type %>
+    <%= form.select :rule_type, options_for_select(Badge::RULE_TYPES), selected: 'all_from_category' %>
   </p>
 
   <p>
     <%= form.label :badge_rule_value %>
-    <%= form.text_field :rule_value, id: :badge_rule_value %>
+    <%= form.select :rule_value, options_for_select([]) %>
   </p>
 
   <p><%= form.submit %></p>

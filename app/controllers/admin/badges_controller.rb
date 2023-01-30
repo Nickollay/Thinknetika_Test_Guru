@@ -36,6 +36,18 @@ class Admin::BadgesController < Admin::BaseController
     redirect_to admin_badges_path, notice: t('.success')
   end
 
+  def find_rule_values
+    rule_type = params[:rule].to_i
+
+    if rule_type == Badge::ENUM_RULE_TYPES['all_from_category']
+      @rule_values = Category.pluck(:id, :title).to_h
+    elsif rule_type == Badge::ENUM_RULE_TYPES['one_after_first_catch']
+      @rule_values = Test.pluck(:id, :title).to_h
+    end
+
+    render json:  @rule_values || {fer: 123}
+  end
+
   private
 
   def badge_params

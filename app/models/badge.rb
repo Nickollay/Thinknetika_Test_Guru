@@ -5,6 +5,9 @@ class Badge < ApplicationRecord
     all_with_level: 2
   }
 
+  ENUM_RULE_TYPES = Badge.rule_types
+  RULE_TYPES = ENUM_RULE_TYPES.keys
+
   has_and_belongs_to_many :users
 
   belongs_to :creator, foreign_key: :creator_id, class_name: 'User', optional: true
