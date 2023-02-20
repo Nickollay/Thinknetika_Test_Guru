@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
     function callUpdateBadgeRuleValue(badgeRuleType) {
         const ruleType = badgeRuleType.value
         const $badge_rule_value = $("#badge_rule_value")
-        const all_with_level = '2'
+        const all_with_level = 'all_with_level'
         let rule_values = []
 
         $badge_rule_value.children().remove()

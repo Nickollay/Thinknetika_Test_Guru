@@ -1,6 +1,6 @@
 class Badges::AllFromCategoryStrategy < Badges::InterfaceStrategy
-  def reward?(test_passage)
-    category_id = test_passage.test.category_id
+  def reward?(test_passage:, rule_value:)
+    category_id = rule_value
     user_id = test_passage.user_id
 
     (ids_of_all_tests_from_category(category_id) - ids_of_tests_from_category_successfully_passed_by_user(category_id: category_id, user_id: user_id)).blank?

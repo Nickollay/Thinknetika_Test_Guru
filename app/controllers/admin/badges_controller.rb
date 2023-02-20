@@ -37,11 +37,11 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def find_rule_values
-    rule_type = params[:rule].to_i
+    rule_type = params[:rule]
 
-    if rule_type == Badge::ENUM_RULE_TYPES['all_from_category']
+    if rule_type == Badge::ALL_FROM_CATEGORY
       @rule_values = Category.pluck(:id, :title).to_h
-    elsif rule_type == Badge::ENUM_RULE_TYPES['one_after_first_catch']
+    elsif rule_type == Badge::ONE_AFTER_FIRST_CATCH
       @rule_values = Test.pluck(:id, :title).to_h
     end
 
