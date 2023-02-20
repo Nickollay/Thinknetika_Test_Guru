@@ -3,11 +3,12 @@ class TestPassagesController < ApplicationController
   def show; end
 
   def result
-    @awarded_badges = UserAwarder.new.call(@test_passage)
+    @rewarded_badges = BadgeRewarder.new.call(@test_passage)
 
     #TODO: delete comments if don't needed
     # if awarder_result.success?
     #   @awarded_badges = awarder_result.value!
+    #
     # end
   end
 
@@ -24,6 +25,6 @@ class TestPassagesController < ApplicationController
   private
 
   def set_test_passage
-    @test_passage = TestPassage.eager_load(:test).find(params[:id])
+    @test_passage = TestPassage.eager_load(:test, :user).find(params[:id])
   end
 end

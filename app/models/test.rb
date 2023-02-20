@@ -13,6 +13,7 @@ class Test < ApplicationRecord
   scope :test_in_category, -> (category) { joins(:category)
                                                .where(categories: { title: category } )
                                                .order(title: :desc) }
+  scope :by_category, -> (category_id) { where(category_id: category_id) }
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
