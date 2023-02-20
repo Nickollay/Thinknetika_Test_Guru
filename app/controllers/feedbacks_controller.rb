@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def new;end
+  def new; end
 
   def create
     FeedbacksMailer.feedback(params[:feedback], current_user).deliver_now
