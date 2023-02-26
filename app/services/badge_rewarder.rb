@@ -21,7 +21,6 @@ class BadgeRewarder
     reward_user(test_passage, rewarded_badges) if rewarded_badges.present?
   end
 
-
   private
 
 
