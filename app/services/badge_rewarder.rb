@@ -24,6 +24,6 @@ class BadgeRewarder
   private
 
   def reward_user(test_passage, rewarded_badges)
-    test_passage.user.badges << rewarded_badges #
+    test_passage.user.badges << rewarded_badges
   end
 end
