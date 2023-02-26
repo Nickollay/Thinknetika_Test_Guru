@@ -4,12 +4,6 @@ class TestPassagesController < ApplicationController
 
   def result
     @rewarded_badges = BadgeRewarder.new.call(@test_passage)
-
-    #TODO: delete comments if don't needed
-    # if awarder_result.success?
-    #   @awarded_badges = awarder_result.value!
-    #
-    # end
   end
 
   def update

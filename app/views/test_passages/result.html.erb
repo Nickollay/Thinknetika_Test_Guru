@@ -3,7 +3,7 @@
   <span><%= @test_passage.succeeded? ? t('pass') : t('.fail')%></span>
 </p>
 
-<% if @awarded_badges.present? %>
+<% if @rewarded_badges.present? %>
   <p><%= t('.your_achievements') %></p>
   <div>
     <table class="table table-hover table-dark table-bordered col-6">
@@ -20,7 +20,7 @@
       </tr>
       </thead>
 
-      <%  @awarded_badges.each_with_index do |badge, idx| %>
+      <%  @rewarded_badges.each_with_index do |badge, idx| %>
         <tr>
           <th scope="row"><%= (idx + 1) %></th>
           <td><%= badge.name %></td>

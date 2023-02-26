@@ -6,9 +6,6 @@ class BadgeRewarder
   }.with_indifferent_access
 
   def call(test_passage)
-    #TODO: logic to check all badges if any satisfies rules?
-    # reward user with badges
-    #
     rewarded_badges = []
 
     Badge.find_each do |badge|
@@ -19,11 +16,13 @@ class BadgeRewarder
     end
 
     reward_user(test_passage, rewarded_badges) if rewarded_badges.present?
+
+    rewarded_badges
   end
 
   private
 
   def reward_user(test_passage, rewarded_badges)
-    test_passage.user.badges << rewarded_badges @
+    test_passage.user.badges << rewarded_badges
   end
 end
