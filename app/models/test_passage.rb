@@ -3,6 +3,9 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  scope :by_user, -> (user_id) { where(user_id: user_id) }
+  scope :by_test, -> (test_id) { where(test_id: test_id) }
+
   before_validation :before_validation_set_current_question
 
   def completed?

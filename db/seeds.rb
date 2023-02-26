@@ -3,7 +3,7 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   movies =  Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([ { type: :Admin,
@@ -27,6 +27,8 @@ categories = Category.create!([ { title: :Front },
                                 { title: :Back },
                                 { title: :Mobile }
                               ])
+
+user = Admin.last
 
 tests = Test.create!([ { title: :React, level: 2, category: categories[0], creator: user },
                        { title: :JS,    level: 1, category: categories[0], creator: user },

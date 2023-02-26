@@ -1,4 +1,3 @@
-<!--<p id="notice"><%#= notice %></p>-->
 <h1>Question</h1>
 <p>
   <%= @answer.question.body %>
@@ -14,6 +13,4 @@
   <%= @answer.correct %>
 </p>
 
-<%#= render 'answer', answer: @answer %>
-<!--<%#= link_to 'Edit', edit_answer_path(@answer) %> |-->
-<%= link_to t('back'), admin_question_path(@answer.question) %> <% #TODO: no route error here %>
+<%= link_to t('back'), admin_question_path(@answer.question) %>

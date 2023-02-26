@@ -1,0 +1,22 @@
+<div class="row  justify-content-center mt-3">
+
+  <h1 class='col-8'><% t('.achievement') %></h1>
+
+  <table class="table table-hover table-dark table-bordered col-8 sortable-table">
+    <caption><%= t('.all_achievements') %></caption>
+
+    <thead class="thead-light">
+    <tr>
+      <th scope="col"><%= '#' %></th>
+      <th scope="col">
+        <%= t('.title') %>
+      </th>
+      <th scope="col"></th>
+      <th scope="col"> <%= t('.achieved') %> </th>
+      <th scope="col"><%= t('.achieved_times') %></th>
+
+    </tr>
+    </thead>
+    <%= render @all_badges, user_badges_ids: @user_badges_ids %>
+  </table>
+</div>
