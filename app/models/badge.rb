@@ -18,6 +18,3 @@ class Badge < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :url, presence: true
 end
-
-#TODO: in service 1. implement some method that finds all rule_type `s those related to current test; for ex at the same time after test is passed there can be
-# a few badges awarded or even all of them
