@@ -3,9 +3,21 @@ import { passwordConfirmation } from './password_confirmation.js'
 import { editTestTitle } from './edit_test_title.js'
 import { formInlineHandler } from './form_inline_handler.js'
 import { setProgressBar } from "./set_progress_bar";
+import { TimerCountdown } from "./timer_countdown";
+
 
 document.addEventListener('turbolinks:load', () => {
     I18n.locale = $('body').data('locale')
+
+    // TimerCountdown
+    const timerContainer = document.getElementById("timer-container")
+
+    if(timerContainer) {
+      const minutesToLeft = timerContainer.dataset.timer;
+      const testPassageId = timerContainer.dataset.testPassageId;
+
+      new TimerCountdown(minutesToLeft, testPassageId)
+    }
 
     // editTestTitle
     const adminTables = document.getElementsByClassName('admin table')

@@ -4,4 +4,8 @@ class Category < ApplicationRecord
   has_many :tests, dependent: :nullify
 
   validates :title, presence: true
+
+  def name
+    title
+  end
 end

@@ -3,6 +3,14 @@ class TestPassagesController < ApplicationController
   def show; end
 
   def result
+    timer_policy_result = TestTimerPolicy.new.call(@test_passage)
+
+    unless timer_policy_result.success?
+      flash.now[:error] = timer_policy_result.message
+
+      return
+    end
+
     @rewarded_badges = BadgeRewarder.new.call(@test_passage)
   end
 
