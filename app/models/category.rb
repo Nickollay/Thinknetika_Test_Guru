@@ -5,7 +5,5 @@ class Category < ApplicationRecord
 
   validates :title, presence: true
 
-  def name
-    title
-  end
+  alias_attribute :name, :title
 end
