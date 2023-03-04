@@ -1,0 +1,36 @@
+<% if rewarded_badges.present? %>
+  <p><%= t('.your_achievements') %></p>
+  <div>
+    <table class="table table-hover table-dark table-bordered col-6">
+      <caption><%= t('.your_achievements') %></caption>
+
+      <thead class="thead-light">
+      <tr>
+        <th scope="col"><%= '#' %></th>
+        <th scope="col">
+          <%= t('.title') %>
+        </th>
+        <th scope="col"></th>
+        <th scope="col"> <%= t('.achieved') %> </th>
+      </tr>
+      </thead>
+
+      <%  rewarded_badges.each_with_index do |badge, idx| %>
+        <tr>
+          <th scope="row"><%= (idx + 1) %></th>
+          <td><%= badge.name %></td>
+          <td>
+            <div class="col-md-4 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+              <img src=<%= badge.url %> alt="..." class="img-thumbnail">
+            </div>
+          </td>
+          <td>
+            <div class="col-md-4" style="padding-left: 0px;  padding-right: 0px;">
+              <%= octicon 'thumbsup', width: 65, class: 'text-success ' %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
