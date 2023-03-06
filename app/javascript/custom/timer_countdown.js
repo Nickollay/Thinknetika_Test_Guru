@@ -20,8 +20,6 @@ export class TimerCountdown {
       distance -= 1
 
       if (distance < 0) {
-        // location.replace(location.origin + `/test_passages/${test_passage_id}/result`)
-
         document.getElementById('current_question').submit();
       }
     }, 1000)
