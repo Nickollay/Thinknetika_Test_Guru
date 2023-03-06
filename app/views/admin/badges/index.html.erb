@@ -1,0 +1,26 @@
+<div class="row  justify-content-center mt-3">
+  <h1 class='col-8'><%= t('.header') %></h1>
+
+  <p class='col-8'>
+    <%= link_to t('.new_badge'), new_admin_badge_path %>
+  </p>
+
+  <%= render 'shared/errors', resource: @badge %>
+
+  <table class="table admin table-hover table-light table-bordered table-striped col-8">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">
+        <%= t('.name') %>
+      </th>
+      <th scope="col"><%= t('.image') %></th>
+      <th scope="col">Description</th>
+      <th scope="col">Rule type</th>
+      <th scope="col">Rule value</th>
+      <th scope="col" colspan="4"><%= t('.actions') %></th>
+    </tr>
+    </thead>
+
+    <%= render @badges %>
+  </table>
+</div>

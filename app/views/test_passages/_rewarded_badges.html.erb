@@ -1,0 +1,22 @@
+<% if rewarded_badges.present? %>
+  <p><%= t('.your_achievements') %></p>
+  <div>
+    <table class="table table-hover table-dark table-bordered col-6">
+      <caption><%= t('.your_achievements') %></caption>
+
+      <thead class="thead-light">
+      <tr>
+        <th scope="col"><%= '#' %></th>
+        <th scope="col">
+          <%= t('.title') %>
+        </th>
+        <th scope="col"></th>
+        <th scope="col"> <%= t('.achieved') %> </th>
+      </tr>
+      </thead>
+
+      <%= render partial: 'test_passages/rewarded_badge', collection: rewarded_badges, as: :rewarded_badge %>
+
+    </table>
+  </div>
+<% end %>

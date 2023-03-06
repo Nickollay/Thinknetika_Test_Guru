@@ -1,0 +1,19 @@
+<tr>
+  <th scope="row"><%= (badge_counter + 1) %></th>
+  <td><%= badge.name %></td>
+  <td>
+    <div class="col-md-4 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+      <img src=<%= badge.url %> alt="..." class="img-thumbnail">
+    </div>
+  </td>
+  <td>
+    <div class="col-md-4" style="padding-left: 0px;  padding-right: 0px;">
+      <% if user_badges_ids.include?(badge.id) %>
+        <%= octicon 'thumbsup', width: 65, class: 'text-success ' %>
+      <% else %>
+        <%= octicon 'thumbsdown', width: 65, class: 'text-danger' %>
+      <% end %>
+    </div>
+  </td>
+  <td><%= user_badges_ids.count(badge.id) %> </td>
+</tr>

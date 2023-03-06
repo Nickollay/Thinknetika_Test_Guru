@@ -1,4 +1,4 @@
-class CreateGistFromQuestion
+class GistFromQuestionCreator
   def self.call(question, client = default_client)
     new.call(question, client)
   end

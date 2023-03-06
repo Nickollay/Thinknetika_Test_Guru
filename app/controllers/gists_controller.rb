@@ -4,7 +4,7 @@ class GistsController < ApplicationController
   def create
     current_question = @test_passage.current_question
 
-    response = CreateGistFromQuestion.call(current_question)
+    response = GistFromQuestionCreator.call(current_question)
 
     hash_id = response.hash_id
     html_url = response.html_url

@@ -1,0 +1,40 @@
+<div class="row  justify-content-center mt-3">
+  <h1 class='col-8'><%= t('.header') %></h1>
+  <table class="table admin table-hover table-light table-bordered table-striped col-8">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">
+        <%= t('.name') %>
+      </th>
+      <th scope="col">img</th>
+      <th scope="col">description</th>
+      <th scope="col">rule_type</th>
+      <th scope="col">rule_value</th>
+      <th scope="col" colspan="4"><%= t('.actions') %></th>
+    </tr>
+    </thead>
+
+    <tr>
+      <td class="align-middle">
+        <%= content_tag :span, @badge.name, class: 'badge-title', data: { badge_id: @badge.id } %>
+      </td>
+      <td>
+        <div class="col-md-12 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+          <img src=<%= @badge.url %> alt="..." class="img-thumbnail">
+        </div>
+      </td>
+      <td class="align-middle"><%= @badge.description %></td>
+      <td class="align-middle"><%= @badge.rule_type %></td>
+      <td class="align-middle"><%= @badge.rule_value %></td>
+
+      <td>
+        <%= link_to t('edit'),
+                    edit_admin_badge_path(@badge) %>
+      </td>
+      <td><%= link_to t('delete'), admin_badge_path(@badge),
+                      method: :delete,
+                      data: { confirm: t('sure') } %>
+      </td>
+    </tr>
+  </table>
+</div>

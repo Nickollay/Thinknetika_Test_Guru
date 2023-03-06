@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: :index
+
   resources :test_passages, only: %i[show update] do
     member do
       get :result
@@ -29,6 +31,11 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
+    resources :badges do
+      collection do
+        get :find_rule_values
+      end
+    end
   end
 
   resources :feedbacks, only: [:new, :create]

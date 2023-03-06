@@ -1,8 +1,10 @@
-<!--<h1>The <%#= @test_passage.test.title %> was completed!</h1>-->
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 <p><%= t('.correct') %> <span class=<%= @test_passage.succeeded? ? 'green' : 'red' %>><%= @test_passage.success_percent %>%</span>
-<span><%= @test_passage.succeeded? ? t('pass') : t('.fail')%></span>
-</p> 
+  <span><%= @test_passage.succeeded? ? t('pass') : t('.fail')%></span>
+</p>
+
+<%= render 'test_passages/rewarded_badges', rewarded_badges: @rewarded_badges %>
+
 <p>
-<%= link_to t('back'), tests_path  %>
+  <%= link_to t('back'), tests_path  %>
 </p>

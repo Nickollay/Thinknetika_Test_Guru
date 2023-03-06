@@ -28,6 +28,8 @@ categories = Category.create!([ { title: :Front },
                                 { title: :Mobile }
                               ])
 
+user = Admin.last
+
 tests = Test.create!([ { title: :React, level: 2, category: categories[0], creator: user },
                        { title: :JS,    level: 1, category: categories[0], creator: user },
                        { title: :Ruby,  level: 2, category: categories[1], creator: user },

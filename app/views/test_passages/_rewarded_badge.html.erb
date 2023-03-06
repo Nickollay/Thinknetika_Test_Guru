@@ -1,0 +1,14 @@
+<tr>
+  <th scope="row"><%= (rewarded_badge_counter + 1) %></th>
+  <td><%= rewarded_badge.name %></td>
+  <td>
+    <div class="col-md-4 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+      <img src=<%= rewarded_badge.url %> alt="..." class="img-thumbnail">
+    </div>
+  </td>
+  <td>
+    <div class="col-md-4" style="padding-left: 0px;  padding-right: 0px;">
+      <%= octicon 'thumbsup', width: 65, class: 'text-success ' %>
+    </div>
+  </td>
+</tr>

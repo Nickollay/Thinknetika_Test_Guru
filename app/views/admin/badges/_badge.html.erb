@@ -1,0 +1,32 @@
+<tr>
+  <td class="align-middle">
+    <%= content_tag :span, badge.name, class: 'badge-title', data: { badge_id: badge.id } %>
+  </td>
+  <td>
+    <div class="col-md-12 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+      <img src=<%= badge.url %> alt="..." class="img-thumbnail">
+    </div>
+  </td>
+  <td>
+    <div class="col-md-4 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+      <%= content_tag :span, badge.description, class: 'badge-description' %>
+    </div>
+  </td>
+  <td>
+    <div class="col-md-4 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+      <%= content_tag :span, badge.rule_type, class: 'badge-rule_type' %>
+    </div>
+  </td>
+  <td>
+    <div class="col-md-4 border border-warning border-5" style="padding-left: 0px;  padding-right: 0px;">
+      <%= content_tag :span, badge.rule_value, class: 'badge-rule_value' %>
+    </div>
+  </td>
+
+  <td><%= link_to t('show'), admin_badge_path(badge) %></td>
+  <td>
+    <%= link_to t('edit'), edit_admin_badge_path(badge) %></td>
+  <td><%= link_to t('delete'), admin_badge_path(badge),
+                  method: :delete,
+                  data: { confirm: t('sure') } %></td>
+</tr>
