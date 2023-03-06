@@ -13,10 +13,10 @@ document.addEventListener('turbolinks:load', () => {
     const timerContainer = document.getElementById("timer-container")
 
     if(timerContainer) {
-      const minutesToLeft = timerContainer.dataset.timer;
+      const secondsToLeft = timerContainer.dataset.timer;
       const testPassageId = timerContainer.dataset.testPassageId;
 
-      new TimerCountdown(minutesToLeft, testPassageId)
+      new TimerCountdown(secondsToLeft, testPassageId)
     }
 
     // editTestTitle

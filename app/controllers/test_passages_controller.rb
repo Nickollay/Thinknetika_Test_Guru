@@ -3,7 +3,7 @@ class TestPassagesController < ApplicationController
   def show; end
 
   def result
-    if @test_passage.time_left? #TODO
+    if @test_passage.time_left?
       @rewarded_badges = BadgeRewarder.new.call(@test_passage)
     end
   end

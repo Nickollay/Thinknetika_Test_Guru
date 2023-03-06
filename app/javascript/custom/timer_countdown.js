@@ -1,13 +1,13 @@
 export class TimerCountdown {
-  constructor(minutesToLeft, testPassageId) {
-    this.minutesToLeft = minutesToLeft
+  constructor(secondsToLeft, testPassageId) {
+    this.secondsToLeft = secondsToLeft
     this.testPassageId = testPassageId
 
     this.countdown()
   }
 
   countdown() {
-    let distance = this.minutesToLeft * 60
+    let distance = this.secondsToLeft
     let test_passage_id = this.testPassageId
 
     let x = setInterval(function() {

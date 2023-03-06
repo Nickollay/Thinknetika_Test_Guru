@@ -39,10 +39,10 @@ class TestPassage < ApplicationRecord
     current_time = Time.current
     duration = test.timer
 
-    seconds = (start + duration.minutes) - current_time
+    seconds = (start + duration.seconds) - current_time
 
     if seconds > 0
-      seconds / 60
+      seconds
     else
       0
     end
