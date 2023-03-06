@@ -3,21 +3,21 @@ class TestPassagesController < ApplicationController
   def show; end
 
   def result
-    timer_policy_result = TestTimerPolicy.new.call(@test_passage)
-
-    unless timer_policy_result.success?
-      flash.now[:error] = timer_policy_result.message
-
-      return
+    if @test_passage.time_left? #TODO
+      @rewarded_badges = BadgeRewarder.new.call(@test_passage)
     end
-
-    @rewarded_badges = BadgeRewarder.new.call(@test_passage)
   end
 
   def update
     @test_passage.accept!(params[:answers_ids])
-    if @test_passage.completed?
+
+    if @test_passage.time_over?
+      flash[:error] = 'Time is over, all results were nullified!'
+
+      redirect_to result_test_passage_path(@test_passage)
+    elsif @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

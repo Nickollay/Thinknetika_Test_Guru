@@ -13,9 +13,12 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
+    if time_over?
+      self.correct_questions = 0
+    elsif correct_answer?(answer_ids)
       self.correct_questions += 1
     end
+
     save!
   end
 
@@ -46,7 +49,13 @@ class TestPassage < ApplicationRecord
   end
 
   def time_left?
+    return true if test.timer.blank?
+
     time_left > 0
+  end
+
+  def time_over?
+    !time_left?
   end
 
   private
