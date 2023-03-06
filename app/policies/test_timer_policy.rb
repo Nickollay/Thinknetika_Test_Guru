@@ -8,7 +8,7 @@ class TestTimerPolicy
   def timer_policy(test_passage)
     test = test_passage.test
 
-    return OpenStruct.new(success?: false, message: 'Timer is not set') unless test.timer.present?
+    return OpenStruct.new(success?: true) unless test.timer.present?
 
     if test_passage.time_left?
       OpenStruct.new(success?: true, message: "You've made it to the appointed time!")
