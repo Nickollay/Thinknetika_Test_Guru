@@ -1,8 +1,8 @@
 class BadgeRewarder
   RULES = {
-    all_from_category: Badges::AllFromCategoryStrategy,
-    one_after_first_catch: Badges::OneAfterFirstCatchStrategy,
-    all_with_level:  Badges::AllWithLevelStrategy
+    all_from_category: Badges::AllFromCategorySpecification,
+    one_after_first_catch: Badges::OneAfterFirstCatchSpecification,
+    all_with_level:  Badges::AllWithLevelSpecification
   }.with_indifferent_access
 
   def call(test_passage)

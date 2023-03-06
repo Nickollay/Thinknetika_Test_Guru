@@ -1,4 +1,4 @@
-class  Badges::AllWithLevelStrategy < Badges::InterfaceStrategy
+class  Badges::AllWithLevelSpecification < Badges::InterfaceSpecification
   def reward?(test_passage:, rule_value:)
     level = rule_value
     user_id = test_passage.user_id

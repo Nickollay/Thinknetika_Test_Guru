@@ -1,4 +1,4 @@
-class Badges::AllFromCategoryStrategy < Badges::InterfaceStrategy
+class Badges::AllFromCategorySpecification < Badges::InterfaceSpecification
   def reward?(test_passage:, rule_value:)
     category_id = rule_value
     user_id = test_passage.user_id
