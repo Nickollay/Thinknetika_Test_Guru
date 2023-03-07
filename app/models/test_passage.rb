@@ -45,7 +45,7 @@ class TestPassage < ApplicationRecord
   end
 
   def time_left?
-    return true if test.timer.blank?
+    return true unless test.timer_on?
 
     time_left > 0
   end

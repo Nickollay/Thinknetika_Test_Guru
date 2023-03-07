@@ -3,7 +3,7 @@
 <% current_question_number = @test_passage.current_question_number %>
 <% number_of_questions = @test_passage.test.number_of_questions %>
 
-<% if @test_passage.test.timer.present? %>
+<% if @test_passage.test.timer_on? %>
   <div id='timer-container' data-timer="<%= @test_passage.time_left %>" data-test-passage-id="<%= @test_passage.id %>">
     Time left: <span id='timer'></span>
   </div></br>

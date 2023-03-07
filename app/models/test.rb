@@ -25,4 +25,8 @@ class Test < ApplicationRecord
   def number_of_questions
     self.questions.count
   end
+
+  def timer_on?
+    timer.present?
+  end
 end
