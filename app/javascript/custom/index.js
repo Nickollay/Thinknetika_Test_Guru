@@ -5,7 +5,6 @@ import { formInlineHandler } from './form_inline_handler.js'
 import { setProgressBar } from "./set_progress_bar";
 import { TimerCountdown } from "./timer_countdown";
 
-
 document.addEventListener('turbolinks:load', () => {
     I18n.locale = $('body').data('locale')
 
