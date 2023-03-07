@@ -19,7 +19,7 @@ class BadgeRewarder
     Badge.find_each do |badge|
       rule_type = badge.rule_type
       rule_value = badge.rule_value
-      #TODO: why Wednsday is not gives badge after first catch?....
+
       rewarded_badges << badge if RULES[rule_type].new.reward?(test_passage: test_passage, rule_value: rule_value)
     end
 
