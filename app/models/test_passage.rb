@@ -9,7 +9,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_current_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? && time_left?
   end
 
   def accept!(answer_ids)
@@ -41,11 +41,7 @@ class TestPassage < ApplicationRecord
 
     seconds = (start + duration.seconds) - current_time
 
-    if seconds > 0
-      seconds
-    else
-      0
-    end
+    (seconds > 0) ? seconds : 0
   end
 
   def time_left?
