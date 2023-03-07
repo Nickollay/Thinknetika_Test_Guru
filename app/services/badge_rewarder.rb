@@ -6,7 +6,7 @@ class BadgeRewarder
   }.with_indifferent_access
 
   def call(test_passage)
-    return unless test_passage.test.completed?
+    return unless test_passage.succeeded?
 
     reward_user_with_badges(test_passage)
   end
