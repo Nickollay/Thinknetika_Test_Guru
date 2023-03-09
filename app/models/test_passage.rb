@@ -9,13 +9,16 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_current_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_over?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
+    if time_over?
+      self.correct_questions = 0
+    elsif correct_answer?(answer_ids)
       self.correct_questions += 1
     end
+
     save!
   end
 
@@ -29,6 +32,26 @@ class TestPassage < ApplicationRecord
 
   def current_question_number
     test.questions.order(:id).where('id <= ?', current_question.id).count
+  end
+
+  def time_left
+    start = created_at
+    current_time = Time.current
+    duration = test.timer
+
+    seconds = (start + duration.seconds) - current_time
+
+    (seconds > 0) ? seconds : 0
+  end
+
+  def time_left?
+    return true unless test.timer_on?
+
+    time_left > 0
+  end
+
+  def time_over?
+    !time_left?
   end
 
   private

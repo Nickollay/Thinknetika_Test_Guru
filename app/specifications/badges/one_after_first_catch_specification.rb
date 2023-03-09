@@ -1,5 +1,4 @@
 class Badges::OneAfterFirstCatchSpecification < Badges::InterfaceSpecification
-  #TODO: add implementation
   def reward?(test_passage:, rule_value:)
     test_id = rule_value
     user_id = test_passage.user_id

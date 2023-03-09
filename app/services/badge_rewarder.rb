@@ -6,6 +6,14 @@ class BadgeRewarder
   }.with_indifferent_access
 
   def call(test_passage)
+    return unless test_passage.succeeded?
+
+    reward_user_with_badges(test_passage)
+  end
+
+  private
+
+  def reward_user_with_badges(test_passage)
     rewarded_badges = []
 
     Badge.find_each do |badge|
@@ -19,8 +27,6 @@ class BadgeRewarder
 
     rewarded_badges
   end
-
-  private
 
   def reward_user(test_passage, rewarded_badges)
     test_passage.user.badges << rewarded_badges
